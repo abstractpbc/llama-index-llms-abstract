@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llama-index-llms-abstract"
+version = "0.1.0"
+description = "llama-index llms abstract integration"
+authors = [{ name = "Abstract" }]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "llama-index-core>=0.14.5,<0.15",
+    "llama-index-llms-openai>=0.8.3,<0.9",
+]
+
+[project.urls]
+Homepage = "https://abstract.inc"
+Documentation = "https://abstract.inc/docs"
+Repository = "https://github.com/abstractpbc/llama-index-llms-abstract"
+
+[dependency-groups]
+dev = ["pytest", "ruff", "mypy"]
+
+[tool.hatch.build.targets.sdist]
+include = ["llama_index/"]
+
+[tool.hatch.build.targets.wheel]
+include = ["llama_index/"]
+
+[tool.llamahub]
+contains_example = false
+import_path = "llama_index.llms.abstract"
+
+[tool.mypy]
+disallow_untyped_defs = true
+ignore_missing_imports = true
