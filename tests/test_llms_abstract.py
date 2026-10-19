@@ -56,3 +56,4 @@ def test_request_shape(monkeypatch: pytest.MonkeyPatch) -> None:
     assert captured["model"] == "glm-5.3:superfast"
     assert captured["stream"] is False
     assert str(llm._client.base_url).rstrip("/") == DEFAULT_API_BASE
+    assert "previous_response_id" not in captured
